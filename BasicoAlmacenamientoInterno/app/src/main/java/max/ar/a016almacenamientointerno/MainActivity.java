@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -28,7 +29,12 @@ public class MainActivity extends AppCompatActivity {
         /**Obtenemos la lista de todos los archivos creados por la Activity*/
         if (existe(archivos,"notas.txt"))
             try{
-                InputStreamReader archivoReader=new InputStreamReader(openFileInput("notas.txt"));
+                InputStreamReader objInputStreamReader=new InputStreamReader(openFileInput("notas.txt"));
+                /**crear un objeto de la clase InputStreamReader y al constructor de dicha clase le
+                 *  pasamos el dato devuelto por el método openFileInput*/
+                BufferedReader objBufferReader= new BufferedReader(objInputStreamReader);
+                /**Creamos un objeto de la clase BufferedReader y le pasamos al constructor la
+                 * referencia del objeto de la clase InputStreamReader*/
             }
     }
     public void grabar(View view){
@@ -39,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
              * que le pasamos como parámetro el nombre del archivo de texto y el modo de apertura.*/
             archivoWriter.write(editMultiLinea.getText().toString());
             archivoWriter.flush();
+            /**método flush para que vuelque todos los datos que pueden haber quedado en el buffer*/
             archivoWriter.close();
+            /**procedemos al cerrado del archivo*/
         } catch (IOException e){
         }
         Toast t=Toast.makeText(this,"Los datos fueron grabados",Toast.LENGTH_LONG);
