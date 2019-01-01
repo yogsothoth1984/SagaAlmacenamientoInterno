@@ -10,19 +10,26 @@
         android:id="@+id/botonAgregarId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="39dp"
         android:text="Agregar"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="38dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editMultiLineaId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editMultiLineaId"
-        android:layout_width="match_parent"
-        android:layout_height="591dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
         android:background="@android:color/holo_orange_dark"
         android:ems="10"
         android:gravity="top|left"
-        android:onClick="grabar"
         android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="125dp" />
+        android:onClick="grabar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonAgregarId" />
 </android.support.constraint.ConstraintLayout>

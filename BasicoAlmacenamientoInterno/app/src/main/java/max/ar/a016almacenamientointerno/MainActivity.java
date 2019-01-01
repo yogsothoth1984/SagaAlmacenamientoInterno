@@ -35,7 +35,23 @@ public class MainActivity extends AppCompatActivity {
                 BufferedReader objBufferReader= new BufferedReader(objInputStreamReader);
                 /**Creamos un objeto de la clase BufferedReader y le pasamos al constructor la
                  * referencia del objeto de la clase InputStreamReader*/
+                String linea= objBufferReader.readLine();/**Leemos la primer línea del archivo de texto*/
+                String todo= "";/**Inicializamos un String vacío*/
+                while (linea !=null){
+                    todo= todo+linea+"\n";/**Lo concatenamos al String junto a un salto de línea*/
+                    linea= objBufferReader.readLine();
+                }
+                objBufferReader.close();
+                objInputStreamReader.close();
+                editMultiLinea.setText(todo);
+            } catch (IOException e){
             }
+    }
+    private boolean existe(String[] archivos, String archbusca){
+        for (int f=0;f< archivos.length;f++)
+            if (archbusca.equals(archivos[f]))
+                return true;
+            return false;
     }
     public void grabar(View view){
         try{
